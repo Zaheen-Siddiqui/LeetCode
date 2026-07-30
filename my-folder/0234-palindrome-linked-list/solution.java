@@ -12,8 +12,7 @@ class Solution {
     public boolean isPalindrome(ListNode head) {
         int n = 0;
         ListNode end = head;
-        // ListNode
-        boolean Pal = true;
+        
         Stack<Integer> stack = new Stack<>();
         while(end != null){
             stack.push(end.val);
@@ -22,10 +21,10 @@ class Solution {
         while(head != null){
             int top = stack.pop();
             if(top != head.val){
-                Pal = false;
+                return false;
             }
             head = head.next;
         }
-        return Pal;
+        return true;
     }
 }
