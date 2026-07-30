@@ -1,13 +1,23 @@
 class Solution {
     public boolean isPalindrome(int x) {
-        int rev = 0, temp = x;
-        while (x>0){
-            // rem = x % 10;
-            rev = 10*rev + x % 10;
-            x = x/10;
+        if(x < 0)
+            return false;
+        
+        return x == reverse(x);
+    }
+    public int reverse(int x) {
+        long rev = 0;
+
+        while (x != 0) {
+            int rem = x % 10;
+            rev = rev * 10 + rem;
+            x /= 10;
         }
-        if (temp == rev)
-            return true;
-        return false;
+
+        if (rev > Integer.MAX_VALUE || rev < Integer.MIN_VALUE) {
+            return 0;
+        }
+
+        return (int) rev;
     }
 }
